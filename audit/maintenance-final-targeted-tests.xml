@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="repeat initialization can switch to unrelated history and persists backup records" time="5.528039" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="operation history persists failures and a broken history file does not undo config saves" time="2.165234" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="open panel follows theme, initialization resets switches, and history survives remount" time="0.583409" classname="test" file="D:\Project\DSH\dsh-home-sync\test\maintenance-browser.test.mjs"/>
+	<testcase name="clicking the SVG opens the panel and bubbling does not close it" time="0.002886" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="keyboard-generated click opens and Escape closes" time="0.000907" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="a drag suppresses the following click" time="0.001092" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="fallback opens without a primary button after a mounting failure" time="0.000573" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="outside click closes and script cleanup removes UI and document listeners" time="0.000723" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<!-- tests 8 -->
+	<!-- suites 0 -->
+	<!-- pass 8 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 7777.7165 -->
+</testsuites>

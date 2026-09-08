@@ -1,0 +1,73 @@
+{
+  "at": "2026-09-07T12:07:25.685Z",
+  "root": "C:\\Users\\OverDustD7\\AppData\\Local\\Temp\\dsh-second-review-n5S5pC",
+  "sources": {
+    "lib/sync.js": "7b8bc76183f2b7853a03e5ab9278f061dac34be37e5ed17cc3515fa8c9574cbb",
+    "lib/index.js": "cfadb06562f10953d0dcb2ff664056692776ffc28eee3c077b325dd08db6f42e",
+    "lib/ui.js": "79853d1480cb1e8de1f11d7b8ea32b8f7ea0c7514c8aa6fff63cfdcb499b3d79"
+  },
+  "syntheticDataOnly": true,
+  "results": [
+    {
+      "id": "S01-history-leaks-to-separate-push-destination",
+      "confirmed": true,
+      "evidence": {
+        "result": {
+          "ok": true,
+          "message": "同步完成。",
+          "ahead": 0,
+          "behind": 0
+        },
+        "currentTreeHasNoSecret": true,
+        "historicalSecretArrivedAtNewDestination": true
+      }
+    },
+    {
+      "id": "S02-pull-autostash-conflict-reports-success",
+      "confirmed": true,
+      "evidence": {
+        "result": {
+          "ok": true,
+          "message": "已拉取远端更新。",
+          "ahead": 0,
+          "behind": 0
+        },
+        "gitStatus": "UU settings.yaml",
+        "containsConflictMarkers": true,
+        "stashCount": 1
+      }
+    },
+    {
+      "id": "S03-unborn-repository-cannot-initialize",
+      "confirmed": true,
+      "evidence": {
+        "validEmptyRepository": true,
+        "failure": {
+          "reason": "git-failed",
+          "message": "fatal: Needed a single revision"
+        }
+      }
+    },
+    {
+      "id": "S04-untracked-memory-directory-displays-zero",
+      "confirmed": true,
+      "evidence": {
+        "actualNewMemoryFiles": 1,
+        "reportedDirty": [],
+        "excludedCount": 1
+      }
+    },
+    {
+      "id": "S05-repeat-init-non-fast-forward-probe",
+      "confirmed": true,
+      "evidence": {
+        "unrelatedRemoteRoot": true,
+        "failure": {
+          "reason": "git-failed",
+          "message": "From C:\\Users\\OVERDU~1\\AppData\\Local\\Temp\\dsh-home-sync-init-mafosH\n ! [rejected] f2a916bd8a97096d61f2df92740bfddb5f55f11d -> refs/dsh-home-sync/init  (non-fast-forward)\n备份：C:\\Users\\OverDustD7\\AppData\\Local\\Temp\\dsh-second-review-n5S5pC\\5\\home.home-sync-backups\\init-CVLZVf"
+        },
+        "originalHeadRestored": true
+      }
+    }
+  ]
+}

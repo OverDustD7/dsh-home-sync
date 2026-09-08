@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="configuration schema rejects invalid input and migrates the legacy switch" time="0.001419" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="all push destinations are protected against secrets already in fetch history" time="3.180176" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="clean history can be published to multiple push destinations without following tags" time="2.677419" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="pull disables inherited autostash and preserves conflicting uncommitted content" time="2.235792" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="initialization accepts an unborn repository and backs up its staged files" time="2.424933" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="repeat initialization can switch to unrelated history and persists backup records" time="5.255902" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="new nested memory files count individually while excluded files stay excluded" time="3.005893" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="operation history persists failures and a broken history file does not undo config saves" time="1.664704" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="normal push, clean retry, and accurate ahead count" time="4.538035" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="failed push retries a clean but unpushed commit" time="4.612808" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="network fetch failure leaves local changes uncommitted" time="1.315602" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="two devices changing separate files converge" time="3.325105" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="same-file conflict stops publication and preserves local content" time="3.092969" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="wrong branch cannot publish" time="0.782323" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="untracked credentials stay local; pre-staged credentials block push" time="2.914222" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="secret in outgoing history is blocked even when deleted at HEAD" time="2.212292" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="remote-only changes are synchronized by a clean client" time="2.732004" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="pull refuses to overwrite an ignored untracked collision" time="1.852239" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="linked local files cannot redirect initialization writes" time="0.969982" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="remote symlink entries are refused before materialization" time="1.896192" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="initialization refuses repositories whose history lives outside .git" time="0.572748" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="init backs up all affected files and switches/saves the chosen branch" time="3.173883" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="fresh device init succeeds and always creates a backup" time="1.767263" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="init rejects remote credentials before overwriting ignored local data" time="1.898540" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="failed init fetch preserves the existing origin" time="1.225431" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="late initialization failure restores files, index, HEAD and origin" time="2.406868" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="operations on the same home are mutually exclusive across service instances" time="3.051499" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="unloading cancels subsequent steps and releases the operation lock" time="0.639565" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="temporary cleanup failure does not hide a completed initialization" time="2.014428" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="status reports invalid repositories and corrupt config as errors" time="0.596639" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="HTTP requires host authentication, trusted source, JSON and valid schema" time="0.582480" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="saving switches reconciles timers; disabled callbacks cannot push" time="2.587732" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="missing authentication service fails closed without registered routes" time="0.559727" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="UTF-8 JSON survives every possible byte split" time="0.000433" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="invalid, aborted, oversized, and timed-out request bodies fail explicitly" time="0.028450" classname="test" file="D:\Project\DSH\dsh-home-sync\test\backend.test.mjs"/>
+	<testcase name="headless browser opens from SVG, saves Unicode settings and reopens cleanly" time="0.712317" classname="test" file="D:\Project\DSH\dsh-home-sync\test\browser.test.mjs"/>
+	<testcase name="installed host dispatch and trust checks protect real HTTP requests, including reload" time="0.125919" classname="test" file="D:\Project\DSH\dsh-home-sync\test\host.test.mjs"/>
+	<testcase name="open panel follows theme, initialization resets switches, and history survives remount" time="0.683972" classname="test" file="D:\Project\DSH\dsh-home-sync\test\maintenance-browser.test.mjs"/>
+	<testcase name="clicking the SVG opens the panel and bubbling does not close it" time="0.003051" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="keyboard-generated click opens and Escape closes" time="0.000919" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="a drag suppresses the following click" time="0.001521" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="fallback opens without a primary button after a mounting failure" time="0.000634" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<testcase name="outside click closes and script cleanup removes UI and document listeners" time="0.000765" classname="test" file="D:\Project\DSH\dsh-home-sync\test\ui.test.mjs"/>
+	<!-- tests 43 -->
+	<!-- suites 0 -->
+	<!-- pass 43 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 71887.3977 -->
+</testsuites>

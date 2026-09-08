@@ -1,0 +1,5 @@
+# dsh-home-sync bundle patch: mount the plugin row into the web profile.
+# Installed via:  dsh plugin --profile web add link:<absolute path to this dir>
+- insert:
+    - id: home-sync
+      name: 'dsh-home-sync'
