@@ -5,3 +5,6 @@ node_modules/
 npm-debug.log*
 
 dist/
+
+audit/
+DSH插件*.md

@@ -126,11 +126,11 @@ Browser tests use a separate temporary Chrome/Edge profile and are skipped if no
 
 For host compatibility tests, `DSH_HOST_MODULES` can point to an installed DSH `node_modules/@deepseek-ai` directory. These tests are skipped if no host installation is found. They reuse the real host routing and source-validation methods with a synthetic identity-cookie implementation.
 
-The source repository includes the [original audit report](DSH插件检查与修改报告.md) for 0.1.0 and the [first repair report](DSH插件修复完成报告.md) for 0.2.0. Audit reports are in Chinese and are not included in the runtime package.
+Development and audit documentation (inspection / repair / review reports and `audit/` evidence) is kept locally as internal material and is not distributed with this repository. `test/` and `npm test` are the public, reproducible verification entry points.
 
 ## Historical review: September 7, 2026
 
-**The following describes the 0.2.0 review. Its conclusion that no new high-risk defects had been found was superseded by the second review.** Use the source repository's [0.2.1 second review and repair report](DSH插件二次审查报告.md) for the current fixes and validation. Immediate logs remain visually hidden; a separate collapsed operation-history section is now available.
+**The following describes the 0.2.0 review. Its conclusion that no new high-risk defects had been found was superseded by the second review.** Development and audit reports (including the 0.2.1 second review) are kept locally as internal material and are not distributed with this repository; this section documents the earlier independent review for traceability. Immediate logs remain visually hidden; a separate collapsed operation-history section is now available.
 
 The earlier review covered `lib/index.js`, `lib/sync.js`, `lib/ui.js`, `package.json`, and `cordis.patch.yml`, comparing them with the two original reports. It reported implementations for all 17 original findings and 35 passing tests with no failures. Later independent probes found gaps that those tests did not cover.
 
