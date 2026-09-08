@@ -1,9 +1,9 @@
-# dsh-home-sync
+﻿# dsh-home-sync
 
 [![npm version](https://img.shields.io/npm/v/dsh-home-sync)](https://www.npmjs.com/package/dsh-home-sync)
 [![GitHub](https://img.shields.io/badge/GitHub-OverDustD7%2Fdsh--home--sync-24292e)](https://github.com/OverDustD7/dsh-home-sync)
 
-English | [简体中文](README.zh-CN.md)
+English | [绠€浣撲腑鏂嘳(README.zh-CN.md)
 
 Git-based sync for DSH configuration and Mnemon memory plugin data, with automatic two-way sync, cross-device migration, initialization backups, conflict detection, and a web UI.
 
@@ -50,7 +50,7 @@ npm pack --ignore-scripts --pack-destination dist
 On the target, run the following from the directory containing the archive:
 
 ```powershell
-dsh plugin --profile web add ./dsh-home-sync-0.2.1.tgz
+dsh plugin --profile web add ./dsh-home-sync-0.2.2.tgz
 ```
 
 If the package manager cannot install a local tarball, extract it into a permanent directory and install the extracted `package` subdirectory using `link:`. Do not use a temporary extraction directory as a permanent link target.
@@ -116,7 +116,7 @@ Configuration is stored at `<DSH_HOME>/dsh-home-sync.json`.
 | `autoPullOnStartup` | Pull when the plugin starts |
 | `autoSync` | Run periodic full synchronization |
 | `syncIntervalSeconds` | Integer from 15 to 86,400 |
-| `commitMessage` | Commit message, 1–1,000 characters |
+| `commitMessage` | Commit message, 1鈥?,000 characters |
 | `sshBatch` | Use SSH batch mode |
 
 The legacy `autoSyncOnStartup` setting migrates to `autoSync`. If both are present, `autoSync` takes precedence.
