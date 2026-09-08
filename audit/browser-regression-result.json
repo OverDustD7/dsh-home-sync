@@ -1,6 +1,0 @@
-{
-  "passed": true,
-  "browser": "C:/Program Files/Google/Chrome/Application/chrome.exe",
-  "result": "PASS: SVG click, Unicode save, Escape, reopen",
-  "syntheticDataOnly": true
-}
