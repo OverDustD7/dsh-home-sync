@@ -1,5 +1,8 @@
 # dsh-home-sync
 
+[![npm version](https://img.shields.io/npm/v/dsh-home-sync)](https://www.npmjs.com/package/dsh-home-sync)
+[![GitHub](https://img.shields.io/badge/GitHub-OverDustD7%2Fdsh--home--sync-24292e)](https://github.com/OverDustD7/dsh-home-sync)
+
 English | [简体中文](README.zh-CN.md)
 
 Git-based sync for DSH configuration and Mnemon memory plugin data, with automatic two-way sync, cross-device migration, initialization backups, conflict detection, and a web UI.
@@ -14,34 +17,43 @@ Version 0.2.1 completes the maintenance improvements and fixes gaps in history v
 
 ## Installation
 
-Prepare the source on the device where you want to use the plugin, then run:
+### From npm (recommended)
+
+```powershell
+dsh plugin --profile web add dsh-home-sync
+```
+
+Restart DSH web after the install and refresh the browser to load the UI. The published package needs no build step or third-party dependencies.
+
+### From GitHub
+
+```powershell
+dsh plugin --profile web add github:OverDustD7/dsh-home-sync
+```
+
+### Local development (from source)
 
 ```powershell
 dsh plugin --profile web add link:D:/Project/DSH/dsh-home-sync
 ```
 
-Replace the example path with your local source directory. A `link:` installation reads that directory directly. Restart DSH web after backend updates and refresh the browser to load UI updates. No build step or third-party dependencies are required for this plugin.
+A `link:` installation reads that source directory directly: restart DSH web after backend changes and refresh the browser for UI changes.
 
-A `link:` declaration stores a local path; it does not transfer the plugin source to another device. Use the versioned package below to install on another device without recreating the original development path.
+### Offline / air-gapped devices
 
-### Installing on another device
-
-The package is `dist/dsh-home-sync-0.2.1.tgz`. It contains the runtime code, plugin declaration, and English and Chinese READMEs. Copy it to the target device and run the following from the directory containing the archive:
-
-```powershell
-$syncPackage = (Resolve-Path -LiteralPath './dsh-home-sync-0.2.1.tgz').Path
-dsh plugin --profile web add "$syncPackage"
-```
-
-DSH forwards this command to pnpm to install the local package. Device initialization may restore profile declarations from the old device, so run the installation command again after initialization, then restart DSH web. Keep the package for other devices and future reinstalls; Git synchronization does not distribute the archive itself.
-
-To rebuild the package from source, create the `dist` directory and run:
+Build a tarball and copy it to the target machine:
 
 ```powershell
 npm pack --ignore-scripts --pack-destination dist
 ```
 
-If the target package manager cannot install a local tarball, extract it into a permanent directory and install the extracted `package` subdirectory using `link:`. Do not use a temporary extraction directory as a permanent link target.
+On the target, run the following from the directory containing the archive:
+
+```powershell
+dsh plugin --profile web add ./dsh-home-sync-0.2.1.tgz
+```
+
+If the package manager cannot install a local tarball, extract it into a permanent directory and install the extracted `package` subdirectory using `link:`. Do not use a temporary extraction directory as a permanent link target.
 
 ## Synchronization behavior
 
