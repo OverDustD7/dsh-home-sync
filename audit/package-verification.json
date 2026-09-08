@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "version": "0.2.1",
+  "archiveSha256": "066a08d143d0f459c54f28a26a6ac399c815d17278e3fbbcf1738355f33363e3",
+  "files": {
+    "README.md": "103ea07f7b5d2c41849da8a1e88112cc92ffb0efbf237cdbaf6f1c0c6cc70ba1",
+    "README.zh-CN.md": "18e03b4695f924d24ab201338e444922a6f6d1ae1fa0fd7474e0917a9b2ed072",
+    "cordis.patch.yml": "f330802aa29c1e547fc5a94044c9c6818f4da25278dac9fe71582b28ac699928",
+    "lib/index.js": "cfadb06562f10953d0dcb2ff664056692776ffc28eee3c077b325dd08db6f42e",
+    "lib/sync.js": "b16eb7b7ca92a0376a7334c9a76026b0223f4950554e94e53745f3b17cf5a50a",
+    "lib/ui.js": "39e410f90635824f392010dbd9c9dd651242359b36c36fa98683c5370cec1e9c",
+    "package.json": "2b21f86f42e07d721158e9fa5ce799e530fd35d965b1bc4cbfffda5761090d0f"
+  },
+  "validation": "All archive entries match source bytes; extracted ES modules import successfully without third-party dependencies.",
+  "isolatedExtraction": true
+}

@@ -1,0 +1,29 @@
+{
+  "scope": "synthetic DOM event logic only; no real browser rendering",
+  "results": [
+    {
+      "id": "U01-icon-click-immediately-closes-popover",
+      "reproduced": true,
+      "evidence": {
+        "pointerUpOpens": true,
+        "bubblingClickOnSvgCloses": true
+      }
+    },
+    {
+      "id": "U02-keyboard-generated-click-does-not-open",
+      "reproduced": true,
+      "evidence": {
+        "nativeClickHandlerCount": 0,
+        "popoverOpened": false
+      }
+    },
+    {
+      "id": "U03-fallback-without-primary-button-is-inert",
+      "reproduced": true,
+      "evidence": {
+        "fallbackExists": true,
+        "popoverOpened": false
+      }
+    }
+  ]
+}

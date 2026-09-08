@@ -1,0 +1,15 @@
+{
+  "confirmed": true,
+  "syntheticDataOnly": true,
+  "evidence": {
+    "initiallyChecked": true,
+    "backendAutoSync": false,
+    "backendAutoPullOnStartup": false,
+    "displayedAutoSync": true,
+    "displayedAutoPullOnStartup": true,
+    "logHasBackup": true,
+    "logLeft": "-9999px",
+    "logWidth": "1px",
+    "autoSyncAfterReopen": false
+  }
+}
