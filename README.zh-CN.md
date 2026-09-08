@@ -1,5 +1,8 @@
 # dsh-home-sync
 
+[![npm version](https://img.shields.io/npm/v/dsh-home-sync)](https://www.npmjs.com/package/dsh-home-sync)
+[![GitHub](https://img.shields.io/badge/GitHub-OverDustD7%2Fdsh--home--sync-24292e)](https://github.com/OverDustD7/dsh-home-sync)
+
 [English](README.md) | 简体中文
 
 DSH 配置与 Mnemon 记忆插件数据的 Git 同步工具，支持自动双向同步、跨设备迁移、初始化备份、冲突检测和 Web 可视化管理。0.2.1 补齐维护建议，并修复复审发现的历史检查、初始化和状态显示遗漏。
@@ -8,28 +11,43 @@ DSH 配置与 Mnemon 记忆插件数据的 Git 同步工具，支持自动双向
 
 ## 安装与生效
 
-在需要使用插件的设备上准备源码，然后执行：
+### 从 npm 安装（推荐）
+
+```powershell
+dsh plugin --profile web add dsh-home-sync
+```
+
+装完重启 DSH web，刷新浏览器加载界面。已发布包无需构建或第三方依赖。
+
+### 从 GitHub 安装
+
+```powershell
+dsh plugin --profile web add github:OverDustD7/dsh-home-sync
+```
+
+### 本地开发（从源码）
 
 ```powershell
 dsh plugin --profile web add link:D:/Project/DSH/dsh-home-sync
 ```
 
-路径应换成本机实际路径。已有 link 安装会读取这里的源码；后端更新后需重启 DSH web，浏览器刷新后加载新界面。此项目不需要安装第三方依赖或构建。
+`link:` 安装直接读取该源码目录：后端改动后重启 DSH web，界面改动刷新浏览器即可。
 
-`link:` 只记录本地路径，不会把插件源码同步到另一台设备。新设备可复制版本化安装包，再使用下面的安装步骤，无需保留原设备的源码路径。
+### 离线/隔离网络设备
 
-### 跨设备安装包
-
-交付包为 `dist/dsh-home-sync-0.2.1.tgz`，只包含运行代码、插件声明和中英文 README。将安装包复制到新设备，在包所在目录执行：
+先本地生成安装包再拷到目标机：
 
 ```powershell
-$syncPackage = (Resolve-Path -LiteralPath './dsh-home-sync-0.2.1.tgz').Path
-dsh plugin --profile web add "$syncPackage"
+npm pack --ignore-scripts --pack-destination dist
 ```
 
-此命令由 DSH 转交给 pnpm，安装当前设备上的包。初始化同步可能恢复旧设备的 profile 声明，因此应在初始化完成后再次执行安装命令，再重启 DSH web。保留安装包供另一台设备和后续重装使用；Git 同步本身不分发安装包。
+目标机在压缩包所在目录执行：
 
-从源码重新生成包：`npm pack --ignore-scripts --pack-destination dist`（先创建 dist 目录）。若目标机器的包管理器无法使用本地 tarball，可把包解压到任意持久目录，再将该目录中的 `package` 子目录以 `link:` 安装；避免把临时解压目录作为长期链接目标。
+```powershell
+dsh plugin --profile web add ./dsh-home-sync-0.2.1.tgz
+```
+
+若目标机器的包管理器无法使用本地 tarball，可把包解压到任意持久目录，再将该目录中的 `package` 子目录以 `link:` 安装；避免把临时解压目录作为长期链接目标。
 
 ## 同步行为
 
