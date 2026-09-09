@@ -1,6 +1,6 @@
-﻿{
+{
   "name": "dsh-home-sync",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Git-based sync for DSH configuration and Mnemon memory plugin data, with automatic two-way sync, cross-device migration, initialization backups, conflict detection, and a web UI.",
   "type": "module",
   "main": "lib/index.js",
