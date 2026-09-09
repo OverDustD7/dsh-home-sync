@@ -1,9 +1,9 @@
-﻿# dsh-home-sync
+# dsh-home-sync
 
 [![npm version](https://img.shields.io/npm/v/dsh-home-sync)](https://www.npmjs.com/package/dsh-home-sync)
 [![GitHub](https://img.shields.io/badge/GitHub-OverDustD7%2Fdsh--home--sync-24292e)](https://github.com/OverDustD7/dsh-home-sync)
 
-English | [绠€浣撲腑鏂嘳(README.zh-CN.md)
+English | [简体中文](README.zh-CN.md)
 
 Git-based sync for DSH configuration and Mnemon memory plugin data, with automatic two-way sync, cross-device migration, initialization backups, conflict detection, and a web UI.
 
@@ -44,13 +44,13 @@ A `link:` installation reads that source directory directly: restart DSH web aft
 Build a tarball and copy it to the target machine:
 
 ```powershell
-npm pack --ignore-scripts --pack-destination dist
+npm pack --pack-destination dist
 ```
 
 On the target, run the following from the directory containing the archive:
 
 ```powershell
-dsh plugin --profile web add ./dsh-home-sync-0.2.2.tgz
+dsh plugin --profile web add ./dsh-home-sync-0.2.3.tgz
 ```
 
 If the package manager cannot install a local tarball, extract it into a permanent directory and install the extracted `package` subdirectory using `link:`. Do not use a temporary extraction directory as a permanent link target.
@@ -116,7 +116,7 @@ Configuration is stored at `<DSH_HOME>/dsh-home-sync.json`.
 | `autoPullOnStartup` | Pull when the plugin starts |
 | `autoSync` | Run periodic full synchronization |
 | `syncIntervalSeconds` | Integer from 15 to 86,400 |
-| `commitMessage` | Commit message, 1鈥?,000 characters |
+| `commitMessage` | Commit message, 1–1,000 characters |
 | `sshBatch` | Use SSH batch mode |
 
 The legacy `autoSyncOnStartup` setting migrates to `autoSync`. If both are present, `autoSync` takes precedence.
@@ -131,6 +131,8 @@ The cross-process lock directory is `<DSH_HOME>.home-sync-lock`. An abnormal exi
 npm run check
 npm test
 ```
+
+Save documentation as UTF-8. When editing it with scripts, specify UTF-8 for both reading and writing; do not rely on a system code page. `npm run check:docs` validates the README text and language links, and runs as part of `npm run check` and the normal npm packaging lifecycle. Avoid `--ignore-scripts` when packing, because it skips this check.
 
 Tests use system temporary directories, synthetic files, and local Git remotes. They do not access your real DSH home or accounts. Test repositories are retained in temporary directories for diagnosis.
 

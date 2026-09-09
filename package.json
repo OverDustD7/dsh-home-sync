@@ -8,7 +8,9 @@
   "engines": { "node": ">=20" },
   "scripts": {
     "test": "node --test test/*.test.mjs",
-    "check": "node --check lib/index.js && node --check lib/sync.js && node --check lib/ui.js"
+    "check": "node --check lib/index.js && node --check lib/sync.js && node --check lib/ui.js && npm run check:docs",
+    "check:docs": "node scripts/check-docs.mjs",
+    "prepack": "npm run check:docs"
   },
   "repository": { "type": "git", "url": "https://github.com/OverDustD7/dsh-home-sync.git" },
   "homepage": "https://github.com/OverDustD7/dsh-home-sync#readme",
