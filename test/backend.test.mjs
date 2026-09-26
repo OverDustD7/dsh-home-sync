@@ -282,6 +282,36 @@ test('operations on the same home are mutually exclusive across service instance
   await assert.rejects(f.service.saveConfig({ branch: 'other' }), { reason: 'busy' })
   await pending; assert.equal((await second.pull()).ok, true)
 })
+test('a lock left by a killed process is taken over automatically', async () => {
+  const f = fixture(), lock = f.home + '.home-sync-lock'
+  fs.mkdirSync(lock)
+  // 断电/强杀会留下"大小已分配、内容全 NUL"的持有人文件，正是这次线上事故的形态。
+  fs.writeFileSync(path.join(lock, 'owner.json'), Buffer.alloc(110))
+  const result = await f.service.saveConfig({ branch: 'main', commitMessage: 'takeover' })
+  assert.equal(result.ok, true)
+  assert.equal(fs.existsSync(lock), false)
+  assert.match(result.message || '', /已接管陈旧同步锁/)
+  assert.equal(fs.readdirSync(path.dirname(f.home)).filter(n => n.startsWith('home.home-sync-lock.stale-')).length, 1)
+})
+test('a lock with a long-stale heartbeat is taken over even when its pid is alive', async () => {
+  const f = fixture(), lock = f.home + '.home-sync-lock'
+  fs.mkdirSync(lock)
+  const owner = path.join(lock, 'owner.json')
+  fs.writeFileSync(owner, JSON.stringify({ pid: process.pid, id: 'stale', kind: 'sync', startedAt: new Date(0).toISOString() }))
+  const old = new Date(Date.now() - 30 * 60 * 1000)
+  fs.utimesSync(owner, old, old); fs.utimesSync(lock, old, old)
+  const result = await f.service.saveConfig({ branch: 'main' })
+  assert.equal(result.ok, true)
+  assert.equal(fs.existsSync(lock), false)
+})
+test('a fresh lock owned by a live process still refuses with busy', async () => {
+  const f = fixture(), lock = f.home + '.home-sync-lock'
+  fs.mkdirSync(lock)
+  fs.writeFileSync(path.join(lock, 'owner.json'),
+    JSON.stringify({ pid: process.pid, id: 'live', kind: 'sync', startedAt: new Date().toISOString() }))
+  await assert.rejects(f.service.saveConfig({ branch: 'main' }), { reason: 'busy' })
+  fs.rmSync(lock, { recursive: true, force: true })
+})
 test('unloading cancels subsequent steps and releases the operation lock', async () => {
   const f = fixture(); write(f.home, 'settings.yaml', 'LOCAL\n')
   const pending = f.service.push(); f.service.dispose()
