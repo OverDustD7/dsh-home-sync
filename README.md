@@ -123,7 +123,7 @@ The legacy `autoSyncOnStartup` setting migrates to `autoSync`. If both are prese
 
 A damaged configuration does not fall back to defaults and enable automatic tasks. Repair or restore the JSON file, then restart DSH. Configuration writes flush a temporary file before replacing the original; initialization also creates a separate configuration backup.
 
-The cross-process lock directory is `<DSH_HOME>.home-sync-lock`. An abnormal exit may leave it behind. Remove that directory only after confirming that no DSH synchronization task is running. Recover an unfinished initialization from its backup first.
+The cross-process lock directory is `<DSH_HOME>.home-sync-lock`; its `owner.json` records the owner pid and start time and doubles as the heartbeat. A lock left behind by a killed process or an abrupt shutdown is taken over automatically: when the owner information is missing or corrupt, the owning process no longer exists, or the heartbeat has not been refreshed for 15 minutes, the old lock is renamed to `<DSH_HOME>.home-sync-lock.stale-<timestamp>` and the operation proceeds (the takeover is reported in the operation message). A fresh lock held by a live process still returns busy. Recover an unfinished initialization from its backup first.
 
 ## Verification
 
