@@ -312,6 +312,16 @@ test('a fresh lock owned by a live process still refuses with busy', async () =>
   await assert.rejects(f.service.saveConfig({ branch: 'main' }), { reason: 'busy' })
   fs.rmSync(lock, { recursive: true, force: true })
 })
+test('the push audit covers only the commits being pushed, not the whole ancestry', async () => {
+  const f = fixture()
+  for (let i = 0; i < 20; i++) { write(f.home, 'settings.yaml', `value: v${i}\n`); commit(f.home, `deep ${i}`) }
+  assert.equal((await f.service.push()).ok, true)
+  process.env.DSH_HOME_SYNC_HISTORY_LIMIT = '3'
+  try {
+    write(f.home, 'settings.yaml', 'value: latest\n')
+    assert.equal((await f.service.push()).ok, true)
+  } finally { delete process.env.DSH_HOME_SYNC_HISTORY_LIMIT }
+})
 test('unloading cancels subsequent steps and releases the operation lock', async () => {
   const f = fixture(); write(f.home, 'settings.yaml', 'LOCAL\n')
   const pending = f.service.push(); f.service.dispose()
