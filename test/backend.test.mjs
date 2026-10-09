@@ -322,6 +322,17 @@ test('the push audit covers only the commits being pushed, not the whole ancestr
     assert.equal((await f.service.push()).ok, true)
   } finally { delete process.env.DSH_HOME_SYNC_HISTORY_LIMIT }
 })
+test('a corrupt tracking ref is repaired before the next fetch', async () => {
+  const f = fixture()
+  const loose = path.join(f.home, '.git', 'refs', 'dsh-home-sync', 'branches', 'main')
+  fs.mkdirSync(path.dirname(loose), { recursive: true })
+  // 宿主在 git 写引用文件时被强杀，会留下"大小已分配、内容全 0"的松散引用；这种引用 git 自己删不掉。
+  fs.writeFileSync(loose, Buffer.alloc(41))
+  const result = await f.service.pull()
+  assert.equal(result.ok, true)
+  assert.match(result.message || '', /已修复损坏的跟踪引用/)
+  assert.equal(git(f.home, 'rev-parse', 'refs/dsh-home-sync/branches/main'), git(f.home, 'rev-parse', 'origin/main'))
+})
 test('unloading cancels subsequent steps and releases the operation lock', async () => {
   const f = fixture(); write(f.home, 'settings.yaml', 'LOCAL\n')
   const pending = f.service.push(); f.service.dispose()
