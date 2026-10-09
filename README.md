@@ -58,6 +58,7 @@ If the package manager cannot install a local tarball, extract it into a permane
 ## Synchronization behavior
 
 - **Pull** checks the remote and attempts a fast-forward. It fails if the branches have diverged or local changes could be overwritten, and does not create local commits. The operation explicitly disables `merge.autoStash` to avoid reporting success when restoring stashed changes produces conflicts. The index is also checked after merging.
+- If the tracking ref (`refs/dsh-home-sync/branches/<branch>`) was left corrupt by a killed host, the next sync deletes that broken ref file and re-fetches instead of failing forever; the operation message then reads "已修复损坏的跟踪引用并重新拉取。".
 - **Sync to remote** fetches and validates the remote tree, commits allowed local changes, integrates remote changes, and pushes. It retries unpublished commits even when the working tree is clean.
 - **Automatic sync** performs the full synchronization cycle at the configured interval, including checking remote changes when there are no local changes. Saving switches or the interval immediately rebuilds the scheduled tasks. Configuration saves and other write requests return a busy response while an operation is running.
 - The checked-out branch must match the configured branch. Diverged branches may be integrated with a regular Git merge. If a content conflict occurs, the plugin stops before pushing, aborts the unfinished merge, and preserves local commits. Resolve the conflict manually before retrying; the plugin does not automatically force-push.
